@@ -1,4 +1,4 @@
 package com.projeto.TrabalhoSpring.Repository;
 
-public class testesRepository git {
+public class testesRepository {
 }
