@@ -2,17 +2,26 @@ package com.projeto.TrabalhoSpring.Model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 
-public class Produtos {
+public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
     private int quantidade;
-    private double preco;
+
+    @Column(nullable = false)
+    private BigDecimal preco;
 
     @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     public Long getId() {
@@ -27,7 +36,7 @@ public class Produtos {
         return quantidade;
     }
 
-    public double getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
@@ -47,7 +56,7 @@ public class Produtos {
         this.quantidade = quantidade;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 
